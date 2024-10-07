@@ -25,6 +25,10 @@ def create_app(test_config=None):
 
     #ROUTES
 
+    @app.route('/')
+    def home():
+        return "Welcome to Casting Agency app!"
+
     # GET all actors
     @app.route('/actors', methods=['GET'])
     @requires_auth('get:actors')
