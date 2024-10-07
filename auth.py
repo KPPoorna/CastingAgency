@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 auth0_domain = os.getenv('AUTH0_DOMAIN')
-algorithms = os.getenv('ALGORITHMS')
+ALGORITHMS = ['RS256']
 api_audience = os.getenv('API_AUDIENCE')
 
 ## AuthError Exception
@@ -130,7 +130,7 @@ def verify_decode_jwt(token):
             payload = jwt.decode(
                 token,
                 rsa_key,
-                algorithms=algorithms,
+                algorithms=ALGORITHMS,
                 audience=api_audience,
                 issuer='https://' + auth0_domain + '/'
             )
